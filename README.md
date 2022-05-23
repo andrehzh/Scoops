@@ -1,2 +1,3 @@
 # Scoops
-Scoops Small business marketplace: Full Stack Mobile Application
+Scoops 
+A micro-business focused marketplace: Full Stack Mobile Application
