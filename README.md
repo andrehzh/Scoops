@@ -1,4 +1,4 @@
-# Scoops
+# Scoops v0.1
 Scoops 
 A micro-business focused marketplace: Full Stack Mobile Application
 
