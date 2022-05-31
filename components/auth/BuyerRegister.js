@@ -46,6 +46,7 @@ export class BuyerRegister extends Component {
         <Button
             onPress = {() => this.onRegister()}
             title = "Sign Up"
+            color = "teal"
         />
       </View>
     )

@@ -39,6 +39,7 @@ export class LogIn extends Component {
         <Button
             onPress = {() => this.onLogIn()}
             title = "Log In"
+            color = "teal"
         />
       </View>
     )

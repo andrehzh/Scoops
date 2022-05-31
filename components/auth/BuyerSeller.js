@@ -7,10 +7,12 @@ export default function BuyerSeller({ navigation }) {
     <View style ={{flex: 1, justifyContent: 'center'}}>  
         <Button 
             title = "Buyer"
-            onPress = {() => navigation.navigate("BuyerRegister")}/> 
+            onPress = {() => navigation.navigate("BuyerRegister")}
+            color = "teal"/> 
         <Button 
             title = "Seller"
-            onPress = {() => navigation.navigate("SellerRegister")}/>
+            onPress = {() => navigation.navigate("SellerRegister")}
+            color = "teal"/>
     </View>
   )
 }
