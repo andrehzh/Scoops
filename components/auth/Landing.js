@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
     elevation: 8,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 15,
-    paddingHorizontal: 12,
+    padding: 15,
+    margin: 15,
     borderRadius: 10,
     backgroundColor: 'teal',
     marginBottom: 10

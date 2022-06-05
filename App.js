@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
 import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
+import 'firebase/compat/auth'; 
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -14,11 +14,11 @@ const firebaseConfig = {
   messagingSenderId: "344489565872",
   appId: "1:344489565872:web:035b1ea17bee800537e575",
   measurementId: "G-Y5FNVZHRSZ"
-};
+}; 
 
 if(firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig)
-}
+} 
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -27,6 +27,8 @@ import BuyerSellerScreen from './components/auth/BuyerSeller';
 import LogInScreen from './components/auth/LogIn';
 import BuyerRegisterScreen from './components/auth/BuyerRegister';
 import SellerRegisterScreen from './components/auth/SellerRegister';
+import BuyerHomeScreen from './components/auth/BuyerHomePage';
+
 
 const Stack = createStackNavigator();
 
@@ -60,10 +62,10 @@ export class App extends Component {
           <Text>Loading</Text>
         </View>
       )
-    }
+    } 
 
-    if(!loggedIn) {
-      return (
+   if(!loggedIn) {
+      return ( 
         <NavigationContainer>
           <Stack.Navigator initialRouteName = "Landing"> 
             <Stack.Screen name = "Landing" component = {LandingScreen} options = {{ headerShown: false }}/>
@@ -71,17 +73,22 @@ export class App extends Component {
             <Stack.Screen name = "LogIn" component = {LogInScreen}/>
             <Stack.Screen name = "BuyerRegister" component = {BuyerRegisterScreen}/>
             <Stack.Screen name = "SellerRegister" component = {SellerRegisterScreen}/>
+            <Stack.Screen name = "BuyerHomePage" component = {BuyerHomeScreen}/>
           </Stack.Navigator>
         </NavigationContainer>
-      );
-    }
+    );
+   } 
+
     return (
-      <View style ={{flex: 1, justifyContent: 'center'}}>
-        <Text>User is logged in</Text>
-      </View>
-    )
+      <Provider store = {store}>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName = "BuyerHomePage"> 
+            <Stack.Screen name = "BuyerHomePage" component = {BuyerHomeScreen} options = {{ headerShown: false }}/>
+          </Stack.Navigator>
+        </NavigationContainer>
+      </Provider>
+    ) 
   }
 }
-
 export default App
 
