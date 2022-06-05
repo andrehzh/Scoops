@@ -52,7 +52,7 @@ export class BuyerRegister extends Component {
         />
         <TouchableOpacity 
             style = {styles.button}
-            onPress = {() => navigation.navigate("BuyerHomePage")}>
+            onPress = {() => this.onBuyerRegister()}>
             <Text style = {styles.text}>Log In</Text>
         </TouchableOpacity> 
       </View>

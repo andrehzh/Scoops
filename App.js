@@ -5,16 +5,17 @@ import { View, Text } from 'react-native';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth'; 
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// firebase Config edited to Scoops firestore
 const firebaseConfig = {
-  apiKey: "AIzaSyChnrBnZ1AJKcwmy7r_Q43PGeFLg-VdY8M",
-  authDomain: "orbital-12dff.firebaseapp.com",
-  projectId: "orbital-12dff",
-  storageBucket: "orbital-12dff.appspot.com",
-  messagingSenderId: "344489565872",
-  appId: "1:344489565872:web:035b1ea17bee800537e575",
-  measurementId: "G-Y5FNVZHRSZ"
-}; 
+  apiKey: "AIzaSyCw7L24L9DnfUuyJ8Nccmeud6bSAiWGVaM",
+  authDomain: "scoops-6b1da.firebaseapp.com",
+  projectId: "scoops-6b1da",
+  storageBucket: "scoops-6b1da.appspot.com",
+  messagingSenderId: "240532445850",
+  appId: "1:240532445850:web:411c82a044e58f6a0fdd23",
+  measurementId: "G-1LGWMC8P61"
+};
+
 
 if(firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig)

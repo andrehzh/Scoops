@@ -33,7 +33,7 @@ export class SellerRegister extends Component {
           style = {{width: 300, height: 300, alignSelf: 'center'}}
           resizeMode = "contain"
           source = {require('../../assets/logo.png')}/>
-      <Text style = {styles.text2}>Register - Buyer</Text>
+      <Text style = {styles.text2}>Register - Seller</Text>
       <TextInput
           style = {styles.input}
           placeholder = "name"
@@ -52,7 +52,7 @@ export class SellerRegister extends Component {
       />
       <TouchableOpacity 
           style = {styles.button}
-          onPress = {() => navigation.navigate("BuyerSeller")}>
+          onPress = {() => this.onSellerRegister()}>
           <Text style = {styles.text}>Log In</Text>
       </TouchableOpacity> 
     </View>
