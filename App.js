@@ -28,7 +28,7 @@ import BuyerSellerScreen from './components/auth/BuyerSeller';
 import LogInScreen from './components/auth/LogIn';
 import BuyerRegisterScreen from './components/auth/BuyerRegister';
 import SellerRegisterScreen from './components/auth/SellerRegister';
-import BuyerHomeScreen from './components/auth/BuyerHomePage';
+import BuyerMainScreen from './components/auth/BuyerMain';
 
 
 const Stack = createStackNavigator();
@@ -74,13 +74,13 @@ export class App extends Component {
             <Stack.Screen name = "LogIn" component = {LogInScreen}/>
             <Stack.Screen name = "BuyerRegister" component = {BuyerRegisterScreen}/>
             <Stack.Screen name = "SellerRegister" component = {SellerRegisterScreen}/>
-            <Stack.Screen name = "BuyerHomePage" component = {BuyerHomeScreen}/>
+            <Stack.Screen name = "BuyerMain" component = {BuyerMainScreen}/>
           </Stack.Navigator>
         </NavigationContainer>
     );
    } 
 
-    return (
+    /* return (
       <Provider store = {store}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName = "BuyerHomePage"> 
@@ -88,7 +88,7 @@ export class App extends Component {
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>
-    ) 
+    ) */
   }
 }
 export default App
