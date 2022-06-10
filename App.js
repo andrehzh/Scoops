@@ -4,16 +4,24 @@ import { View, Text } from 'react-native';
 
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth'; 
+import {Provider} from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from './components/screens/redux/reducers';
+import thunk from 'redux-thunk';
+
+const store = createStore(rootReducer, applyMiddleware(thunk))
+
 
 // firebase Config edited to Scoops firestore
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCw7L24L9DnfUuyJ8Nccmeud6bSAiWGVaM",
-  authDomain: "scoops-6b1da.firebaseapp.com",
-  projectId: "scoops-6b1da",
-  storageBucket: "scoops-6b1da.appspot.com",
-  messagingSenderId: "240532445850",
-  appId: "1:240532445850:web:411c82a044e58f6a0fdd23",
-  measurementId: "G-1LGWMC8P61"
+  apiKey: "AIzaSyChnrBnZ1AJKcwmy7r_Q43PGeFLg-VdY8M",
+  authDomain: "orbital-12dff.firebaseapp.com",
+  projectId: "orbital-12dff",
+  storageBucket: "orbital-12dff.appspot.com",
+  messagingSenderId: "344489565872",
+  appId: "1:344489565872:web:035b1ea17bee800537e575",
+  measurementId: "G-Y5FNVZHRSZ"
 };
 
 
@@ -23,12 +31,13 @@ if(firebase.apps.length === 0) {
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import LandingScreen from './components/auth/Landing';
-import BuyerSellerScreen from './components/auth/BuyerSeller';
-import LogInScreen from './components/auth/LogIn';
-import BuyerRegisterScreen from './components/auth/BuyerRegister';
-import SellerRegisterScreen from './components/auth/SellerRegister';
-import BuyerMainScreen from './components/auth/BuyerMain';
+import LandingScreen from './components/screens/log in and register/Landing';
+import BuyerSellerScreen from './components/screens/log in and register/BuyerSeller';
+import LogInScreen from './components/screens/log in and register/LogIn';
+import BuyerRegisterScreen from './components/screens/log in and register/BuyerRegister';
+import SellerRegisterScreen from './components/screens/log in and register/SellerRegister';
+import BuyerMainScreen from './components/screens/buyerHomepage/BuyerMain';
+
 
 
 const Stack = createStackNavigator();
@@ -74,22 +83,21 @@ export class App extends Component {
             <Stack.Screen name = "LogIn" component = {LogInScreen}/>
             <Stack.Screen name = "BuyerRegister" component = {BuyerRegisterScreen}/>
             <Stack.Screen name = "SellerRegister" component = {SellerRegisterScreen}/>
-            <Stack.Screen name = "BuyerMain" component = {BuyerMainScreen}/>
           </Stack.Navigator>
         </NavigationContainer>
     );
-   } 
+  } 
 
-    /* return (
+    return (
       <Provider store = {store}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName = "BuyerHomePage"> 
-            <Stack.Screen name = "BuyerHomePage" component = {BuyerHomeScreen} options = {{ headerShown: false }}/>
+          <Stack.Navigator initialRouteName = "BuyerMain"> 
+              <Stack.Screen name = "BuyerMain" component = {BuyerMainScreen} options = {{ headerShown: false }}/>
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>
-    ) */
-  }
-}
+    ) 
+  } 
+} 
 export default App
 
