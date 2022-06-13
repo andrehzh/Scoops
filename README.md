@@ -17,3 +17,5 @@ features:
 
 Notes: Working Proof of concept for Scoops v0.1
 Showcasing the integration of React Native Expo and Fire base
+
+michel is coding... now
