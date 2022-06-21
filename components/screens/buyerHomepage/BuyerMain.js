@@ -7,7 +7,7 @@ import Categories from './Categories'
 import Products, { products } from './Products'
 import { Divider } from 'react-native-elements'
 
-export default function BuyerMain() {
+export default function BuyerMain({ navigation }) {
   const [productData, setProductData] = React.useState(products)
   //const [activeTab, setActiveTab] = useState("Delivery")
   return (
@@ -18,7 +18,7 @@ export default function BuyerMain() {
       </View>
       <ScrollView showsVerticalScrollIndicator = {false}>
         <Categories/>
-        <Products productData = {productData} />
+        <Products productData = {productData} navigation = {navigation}/>
       </ScrollView>
       <Divider width = {1} />
       <BottomTabs/>

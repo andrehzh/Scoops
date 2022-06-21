@@ -44,7 +44,7 @@ export class LogIn extends Component {
         />
         <TouchableOpacity 
             style = {styles.button}
-            onPress = {() => navigation.navigate("BuyerSeller")}>
+            onPress = {() => this.onLogIn()}>
             <Text style = {styles.text}>Log In</Text>
         </TouchableOpacity> 
       </View>

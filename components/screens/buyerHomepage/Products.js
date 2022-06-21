@@ -1,19 +1,34 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import shopDetail from '../shopDetail/ShopDetail'
 
-export default function Products(props) {
+export default function Products({ navigation, ...props }) {
   return (
-    <TouchableOpacity activeOpacity = {1} style = {{ marginBottom: 30 }}>
-        {props.productData.map((product, index) => (
+    <>
+          {props.productData.map((product, index) => (
+              <TouchableOpacity
+                  activeOpacity={1}
+                  style={{ marginBottom: 30 }}
+                  onPress={() => navigation.navigate("ShopDetail", {
+                    //   name: shop.name,
+                    //   image: shop.image_url,
+                    //   price: shop.price,
+                    //   reviews: shop.review_count,
+                    //   rating: shop.rating,
+                    //   categories: shop.categories,
+                  })
+                }
+              >
             <View 
                 key = {index}
                 style = {{marginTop: 10, padding: 15, backgroundColor: "white"}}>
                 <ProductImage image = {product.image_url}/>
                 <ProductInfo name = {product.name}/>
             </View>
+            </TouchableOpacity>
         ))}
-    </TouchableOpacity>
+    </>
   )
 }
 
