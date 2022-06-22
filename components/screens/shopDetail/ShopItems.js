@@ -6,7 +6,7 @@ import { Divider } from 'react-native-elements'
 //items hardcoded
 const items = [
     {
-        title: "chococake",
+        title: "chocolatecake",
         description: "cake of chocolate, made with chocolate",
         price: "$10.10",
         image:
