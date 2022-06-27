@@ -8,7 +8,7 @@ export default function BuyerSeller({ navigation }) {
         <Image
             style = {{width: 300, height: 300, alignSelf: 'center'}}
             resizeMode = "contain"
-            source = {require('../../../assets/logo.png')}/>
+            source = {require('../../assets/logo.png')}/>
 
         <TouchableOpacity 
             style = {styles.button}

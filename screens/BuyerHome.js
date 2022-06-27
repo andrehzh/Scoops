@@ -1,14 +1,14 @@
 import { View, Text, SafeAreaView, ScrollView } from 'react-native'
 import React from 'react'
-import HeaderTabs from './HeaderTabs'
-import BottomTabs from './BottomTabs'
-import SearchBar from './SearchBar'
-import Categories from './Categories'
-import Products, { products } from './Products'
+import HeaderTabs from '../components/buyerHome/HeaderTabs'
+import BottomTabs from '../components/buyerHome/BottomTabs'
+import SearchBar from '../components/buyerHome/SearchBar'
+import Categories from '../components/buyerHome/Categories'
+import ShopItems, { shops } from '../components/buyerHome/ShopItems'
 import { Divider } from 'react-native-elements'
 
-export default function BuyerMain() {
-  const [productData, setProductData] = React.useState(products)
+export default function BuyerMain({ navigation }) {
+  const [shopData, setShopData] = React.useState(shops)
   //const [activeTab, setActiveTab] = useState("Delivery")
   return (
     <SafeAreaView style = {{backgroundColor: 'white', flex: 1}}>
@@ -18,7 +18,7 @@ export default function BuyerMain() {
       </View>
       <ScrollView showsVerticalScrollIndicator = {false}>
         <Categories/>
-        <Products productData = {productData} />
+        <ShopItems shopData = {shopData} navigation = {navigation}/>
       </ScrollView>
       <Divider width = {1} />
       <BottomTabs/>

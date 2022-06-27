@@ -32,7 +32,7 @@ export class SellerRegister extends Component {
       <Image
           style = {{width: 300, height: 300, alignSelf: 'center'}}
           resizeMode = "contain"
-          source = {require('../../../assets/logo.png')}/>
+          source = {require('../../assets/logo.png')}/>
       <Text style = {styles.text2}>Register - Seller</Text>
       <TextInput
           style = {styles.input}
