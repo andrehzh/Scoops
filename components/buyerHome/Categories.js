@@ -3,23 +3,23 @@ import React from 'react'
 
 const items = [
     {
-        Image: require("../../../assets/bakery-icon.png"),
+        Image: require("../../assets/bakery-icon.png"),
         text: "Bakery"
     },
     {
-        Image: require("../../../assets/food-icon.webp"),
+        Image: require("../../assets/food-icon.webp"),
         text: "Food"
     },
     {
-        Image: require("../../../assets/clothes-icon.png"),
+        Image: require("../../assets/clothes-icon.png"),
         text: "Clothes"
     },
     {
-        Image: require("../../../assets/coffee-icon.png"),
+        Image: require("../../assets/coffee-icon.png"),
         text: "Drinks"
     },
     {
-        Image: require("../../../assets/others-icon.jpeg"),
+        Image: require("../../assets/others-icon.jpeg"),
         text: "Others"
     },
 ];

@@ -1,27 +1,36 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, Image, StyleSheet, TextInput } from 'react-native'
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 
-export class LogIn extends Component {
+export class BuyerRegister extends Component {
     constructor(props) { // must call constructor whenever a component is created
         super(props);
 
         this.state = {
+            name: '',
             email: '',
             password: ''
         }
-        this.onLogIn = this.onLogIn.bind(this) // must do this in order to access 'this' variable
+        this.onBuyerRegister = this.onBuyerRegister.bind(this) // must do this in order to access 'this' variable
     }
  
-     onLogIn() {
-        const { email, password } = this.state;
-        firebase.auth().signInWithEmailAndPassword(email, password)
+    onBuyerRegister() {
+        const { name, email, password } = this.state;
+        firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((result) => {
-                console.log(result)
+              firebase.firestore().collection("users")
+                .doc(firebase.auth().currentUser.uid)
+                .set({
+                  name,
+                  email
+                })
+            console.log(result)
         })
             .catch((error) => {
                 console.log(error)
         })
-    } 
+    }
 
   render() {
     return (
@@ -29,8 +38,13 @@ export class LogIn extends Component {
         <Image
             style = {{width: 300, height: 300, alignSelf: 'center'}}
             resizeMode = "contain"
-            source = {require('../../../assets/logo.png')}/>
-        <Text style = {styles.text2}>Log In</Text>
+            source = {require('../../assets/logo.png')}/>
+        <Text style = {styles.text2}>Register - Buyer</Text>
+        <TextInput
+            style = {styles.input}
+            placeholder = "name"
+            onChangeText = {(name) => this.setState({ name })} 
+        />
         <TextInput
             style = {styles.input}
             placeholder = "email"
@@ -44,8 +58,8 @@ export class LogIn extends Component {
         />
         <TouchableOpacity 
             style = {styles.button}
-            onPress = {() => this.onLogIn()}>
-            <Text style = {styles.text}>Log In</Text>
+            onPress = {() => {this.onBuyerRegister()}}>
+            <Text style = {styles.text}>Sign Up</Text>
         </TouchableOpacity> 
       </View>
     )
@@ -87,4 +101,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LogIn
+export default BuyerRegister
