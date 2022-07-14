@@ -20,7 +20,7 @@ export default function Landing({ navigation }) {
 
         <TouchableOpacity 
             style = {styles.button}
-            onPress = {() => navigation.navigate("LogIn")}>
+            onPress = {() => navigation.navigate("Login")}>
             <Text style = {styles.text}>Log In</Text>
         </TouchableOpacity> 
     </View>

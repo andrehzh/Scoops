@@ -125,33 +125,40 @@ import RootNavigation from "./navigation";
 import { Component } from "react";
 import firebase from "firebase/compat";
 import 'firebase/auth';
+import SellerHome from "./screens/SellerHome";
+import ShopDetail from "./screens/ShopDetail";
+import OrderCompleted from "./screens/OrderCompleted";
+import ShopItems from "./components/buyerHome/ShopItems";
+import BuyerMain from "./screens/BuyerHome";
 
-export class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loaded: false,
-    }
-  }
-  componentDidMount() {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (!user) {
-        this.setState({
-          loggedIn: false,
-          loaded: true,
-        })
-      } else {
-        this.setState({
-          loggedIn: true,
-          loaded: true,
-        })
-      }
-    })
-  }
+// export class App extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       loaded: false,
+//     }
+//   }
+//   componentDidMount() {
+//     firebase.auth().onAuthStateChanged((user) => {
+//       if (!user) {
+//         this.setState({
+//           loggedIn: false,
+//           loaded: true,
+//         })
+//       } else {
+//         this.setState({
+//           loggedIn: true,
+//           loaded: true,
+//         })
+//       }
+//     })
+//   }
 
-  render() {
-  return <RootNavigation />;
-  }
+//   render() {
+//   return <SellerHome />;
+//   }
+// }
+
+export default function App() {
+  return <RootNavigation/>;
 }
-
-export default App;

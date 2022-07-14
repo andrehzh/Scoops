@@ -1,8 +1,9 @@
+//login will be put on hold for now...
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, Image, StyleSheet, TextInput } from 'react-native'
 import firebase from '../../firebase';
 
-export class LogIn extends Component {
+export class Login extends Component {
     constructor(props) { // must call constructor whenever a component is created
         super(props);
 
@@ -88,4 +89,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LogIn
+export default Login
