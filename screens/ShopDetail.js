@@ -6,7 +6,7 @@ import ProductItems from '../components/shopDetail/ProductItems'
 import ViewCart from '../components/shopDetail/ViewCart'
 
 //items hardcoded
-const goods = [
+export const goods = [
   {
       title: "chocolatecake",
       description: "cake of chocolate, made with chocolate",
