@@ -56,9 +56,8 @@ export default function ShopDetail({ route, navigation }) {
     <View>
       <About route={route} />
       <Divider width={1.8} style={{ marginVertical: 20 }} />
-      {/* something wrong with the scroll view put on the pauser */}
-      {/* cant seem to figure this out either man..  but this is the further up source of the error*/}
-      <ProductItems shopTitle={route.params.title} goods={goods}/>
+      {/* something wrong with the scroll view */}
+      <ProductItems shopName={route.params.name} goods={goods}/>
       <ViewCart navigation={navigation} />
     </View>
   )

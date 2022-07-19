@@ -12,7 +12,9 @@ import ShopDetail from './screens/ShopDetail';
 import BuyerHome from './screens/BuyerHome';
 import OrderCompleted from './screens/OrderCompleted';
 import configureStore from './redux/store';
-import SellerHome from './screens/SellerHome'
+import SellerHome from './screens/SellerHome';
+import SellerAdd from './screens/SellerAdd';
+import SellerEdit from './screens/SellerEdit';
 
 
 const store = configureStore();
@@ -23,21 +25,6 @@ export default function RootNavigation() {
     const screenOptions = {
         headerShown: false,
     };
-
-    //auth screens
-    // if (!loggedIn) {
-    //     return (
-    //         <NavigationContainer>
-    //             <Stack.Navigator initialRouteName="Landing">
-    //                 <Stack.Screen name="Landing" component={Landing} />
-    //                 <Stack.Screen name="LogIn" component={LogIn} />
-    //                 <Stack.Screen name="BuyerSeller" component={BuyerSeller} />
-    //                 <Stack.Screen name="BuyerRegister" component={BuyerRegister} />
-    //                 <Stack.Screen name="SellerRegister" component={SellerRegister} />
-    //             </Stack.Navigator>
-    //         </NavigationContainer>
-    //     );
-    // }
 
     return (
         <ReduxProvider store={store}>
@@ -50,6 +37,8 @@ export default function RootNavigation() {
                     <Stack.Screen name="SellerRegister" component={SellerRegister} />
                     <Stack.Screen name="Login" component={Login} />
                     <Stack.Screen name="SellerHome" component={SellerHome} />
+                    <Stack.Screen name="SellerAdd" component={SellerAdd} />
+                    <Stack.Screen name="SellerEdit" component={SellerEdit} />
                     <Stack.Screen name="BuyerHome" component={BuyerHome} />
                     <Stack.Screen name="ShopDetail" component={ShopDetail} />
                     <Stack.Screen name="OrderCompleted" component={OrderCompleted} />

@@ -20,9 +20,8 @@ const styles = StyleSheet.create({
 //shopTitle notWorking
 //the big issue is here
 export default function SellerItems({ 
-    shopTitle,
+    shopName,
     goods,
-    hideCheckbox,
     marginLeft, 
     }) {
 

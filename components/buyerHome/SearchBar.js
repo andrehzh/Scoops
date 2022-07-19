@@ -9,7 +9,7 @@ export default function SearchBar() {
       <GooglePlacesAutocomplete 
         placeholder = "Search"
         styles = {{
-            textIntput: {
+            textInput: {
                 backgroundColor: "#eee",
                 borderRadius: 20,
                 fontWeight: "600",
