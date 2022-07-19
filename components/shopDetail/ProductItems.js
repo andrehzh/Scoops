@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
 //shopTitle notWorking
 //the big issue is here
 export default function ProductItems({ 
-    shopTitle,
+    shopName,
     goods,
     hideCheckbox,
     marginLeft, 
@@ -35,7 +35,7 @@ export default function ProductItems({
             type: "ADD_TO_CART",
             payload: {
                 ...product, 
-                shopTitle: "filler",
+                shopName: shopName,
                 checkboxValue: checkboxValue,}
         });
 

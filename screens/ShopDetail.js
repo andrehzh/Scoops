@@ -57,8 +57,7 @@ export default function ShopDetail({ route, navigation }) {
       <About route={route} />
       <Divider width={1.8} style={{ marginVertical: 20 }} />
       {/* something wrong with the scroll view */}
-      {/* cant seem to figure this out either man..  but this is the further up source of the error*/}
-      <ProductItems shopTitle={route.params.title} goods={goods}/>
+      <ProductItems shopName={route.params.name} goods={goods}/>
       <ViewCart navigation={navigation} />
     </View>
   )

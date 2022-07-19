@@ -1,5 +1,5 @@
 let defaultState = {
-    selectedProducts: { products: [], shopTitle: "" },
+    selectedProducts: { products: [], shopName: "" },
   };
   
   let cartReducer = (state = defaultState, action) => {
@@ -17,7 +17,7 @@ let defaultState = {
   
           newState.selectedProducts = {
             products: [...newState.selectedProducts.products, action.payload],
-            shopTitle: action.payload.shopTitle,
+            shopName: action.payload.shopName,
           };
         } else {
           console.log("REMOVE FROM CART");
@@ -27,7 +27,7 @@ let defaultState = {
                 (product) => product.title !== action.payload.title
               ),
             ],
-            shopTitle: action.payload.shopTitle,
+            shopName: action.payload.shopName,
           };
         }
 

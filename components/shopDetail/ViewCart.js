@@ -9,7 +9,7 @@ import "firebase/compat/firestore";
 export default function ViewCart({ navigation }) {
     const [modalVisible, setModalVisible] = useState(false);
 
-    const { products, shopTitle } = useSelector(
+    const { products, shopName } = useSelector(
         (state) => state.cartReducer.selectedProducts
     );
     
@@ -28,7 +28,7 @@ export default function ViewCart({ navigation }) {
         const db = firebase.firestore();
         db.collection("orders").add({
             products: products,
-            shopName: shopTitle,
+            shopName: shopName,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         });
         setModalVisible(false);
@@ -77,7 +77,7 @@ export default function ViewCart({ navigation }) {
             <>
                 <View style={styles.modalContainer}>
                     <View style={styles.modalCheckoutContainer}>
-                        <Text style={styles.shopName}> {shopTitle} </Text>
+                        <Text style={styles.shopName}> {shopName} </Text>
                         {products.map((product, index) => (
                             <OrderItem key={index} product={product} />
                         ))}
