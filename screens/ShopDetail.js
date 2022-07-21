@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView } from 'react-native'
 import React from 'react'
 import About from '../components/shopDetail/About'
 import { Divider } from 'react-native-elements'
@@ -51,15 +51,16 @@ export const goods = [
   }
 ];
 
-export default function ShopDetail({ route, navigation }) {
+export default function ShopDetail({ route, navigation }) { 
   return (
-    <View>
+    <SafeAreaView style = {{backgroundColor: 'white', flex: 1}}>
       <About route={route} />
       <Divider width={1.8} style={{ marginVertical: 20 }} />
-      {/* something wrong with the scroll view */}
-      <ProductItems shopName={route.params.name} goods={goods}/>
-      <ViewCart navigation={navigation} />
-    </View>
+        <ScrollView showsVerticalScrollIndicator = {false}>
+          <ProductItems shopName={route.params.name} goods={goods}/>
+          <ViewCart navigation={navigation} />
+        </ScrollView>
+    </SafeAreaView>
   )
 }
 

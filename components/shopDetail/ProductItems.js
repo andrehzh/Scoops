@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, Image, ScrollView, SafeAreaView } from 'react-native'
 import React from 'react'
 import { Divider } from 'react-native-elements'
 import BouncyCheckbox from 'react-native-bouncy-checkbox'
@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 //style dic
 const styles = StyleSheet.create({
     shopProductStyle: {
-        flexDirection: "row",
+        flexDirection: "row", 
         justifyContent: "space-between",
         margin: 20,
     },
@@ -87,12 +87,12 @@ const GoodInfo = (props) => (
 
 //constant itemImage
 const GoodImage = ({ marginLeft, ...props }) => (
-    <View style = {{ width: 240, justifyContent: "space-evenly" }}>
+    <SafeAreaView style = {{ width: 240, justifyContent: "space-evenly" }}>
         <Image 
         source={{uri: props.good.image}} 
-        style={{width: 100, height: 100, borderRadius: 8, marginLeft: marginLeft,}}
+        style={{width: 70, height: 80, borderRadius: 8, marginLeft: marginLeft,}}
         />
-    </View>
+    </SafeAreaView>
 ) 
 // import React from "react";
 // import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
