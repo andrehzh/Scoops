@@ -17,6 +17,7 @@ export default function AddItem(props, { navigation }) {
             <TextInput
                 style={styles.input}
                 placeholder="Product Name"
+                onChangeText={(productName) => setProductName(productName)}
             />
             <Text>Product Type</Text>
             <TextInput
