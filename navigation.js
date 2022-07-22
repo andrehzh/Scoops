@@ -3,7 +3,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider as ReduxProvider } from 'react-redux';
-import Login from './components/auth/Login';
+import Login from './components/auth/LogIn';
 import Landing from './components/auth/Landing';
 import BuyerSeller from './components/auth/BuyerSeller';
 import BuyerRegister from './components/auth/BuyerRegister';

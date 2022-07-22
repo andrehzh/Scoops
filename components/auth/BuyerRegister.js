@@ -44,7 +44,7 @@ export class BuyerRegister extends Component {
         <TextInput
             style = {styles.input}
             placeholder = "name"
-            onChangeText = {(name) => this.setState({ name })} 
+            onChangeText = {(name) => this.setState({ name })}
         />
         <TextInput
             style = {styles.input}
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   input: {
-    height: 40,
+    height: 60,
     margin: 12,
     borderWidth: 2,
     padding: 20,
