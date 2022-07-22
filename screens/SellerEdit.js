@@ -3,7 +3,7 @@ import React from 'react'
 import SellerBottomTabs from '../components/sellerHome/SellerBottomTabs'
 import EditPage from '../components/sellerComponents/EditPage';
 
-export default function SellerEdit( navigation ) {
+export default function SellerEdit({ navigation }) {
   return (
     <SafeAreaView style={{ backgroundColor: 'white', flex: 1, justifyContent: 'space-between' }}>
       <ScrollView>
@@ -15,7 +15,7 @@ export default function SellerEdit( navigation ) {
           borderBottomWidth: StyleSheet.hairlineWidth,
         }}
       />
-      <SellerBottomTabs />
+      <SellerBottomTabs navigation={navigation}/>
     </SafeAreaView>
   )
 }
