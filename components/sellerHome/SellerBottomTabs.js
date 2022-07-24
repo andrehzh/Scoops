@@ -27,7 +27,7 @@ export default function BottomTabs({ navigation }) {
                 </View>
             </TouchableOpacity>
             
-            <TouchableOpacity onPress={() => navigation.navigate("SellerAdd")}>
+            <TouchableOpacity onPress={() => navigation.navigate("AddPhoto")}>
                 <View>
                     <FontAwesome5
                         name="plus"
