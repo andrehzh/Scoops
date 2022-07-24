@@ -1,11 +1,14 @@
 import { View, Text, SafeAreaView, TouchableOpacity, StyleSheet } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { TextInput } from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 //text doesnt show dynamically
 
-export default function AddItem() {
+export default function AddItem(props, { navigation }) {
+    const [productName, setProductName] = useState("")
+
+    console.log(props.route.params.image);
     return (
         <SafeAreaView>
             <Text>List a Product</Text>
@@ -14,6 +17,7 @@ export default function AddItem() {
             <TextInput
                 style={styles.input}
                 placeholder="Product Name"
+                onChangeText={(productName) => setProductName(productName)}
             />
             <Text>Product Type</Text>
             <TextInput
@@ -31,7 +35,18 @@ export default function AddItem() {
                 placeholder="Description"
             />
             <Text>Picture of Product</Text>
-            <Icon icon="camera" />
+            <TouchableOpacity onPress={() => props.navigation.navigate("AddPhoto")}>
+                <View>
+                    <FontAwesome5
+                        name="camera"
+                        size={25}
+                        style={{
+                            marginBottom: 3,
+                            alignSelf: "center",
+                        }} />
+                    <Text>Add Image</Text>
+                </View>
+            </TouchableOpacity>
             <TouchableOpacity
                 style={styles.button}
             >
@@ -42,21 +57,6 @@ export default function AddItem() {
         </SafeAreaView>
     )
 }
-
-const Icon = (props) => (
-    <TouchableOpacity>
-        <View>
-            <FontAwesome5
-                name={props.icon}
-                size={25}
-                style={{
-                    marginBottom: 3,
-                    alignSelf: "center",
-                }} />
-            <Text>{props.text}</Text>
-        </View>
-    </TouchableOpacity>
-)
 
 const styles = StyleSheet.create({
     Container: {

@@ -3,7 +3,7 @@ import React from 'react'
 import AddItem from '../components/sellerComponents/AddItem';
 import SellerBottomTabs from '../components/sellerHome/SellerBottomTabs'
 
-export default function SellerAdd() {
+export default function SellerAdd({ navigation }) {
   return (
     <SafeAreaView style={{ backgroundColor: 'white', flex: 1, justifyContent: 'space-between' }}>
       <ScrollView>
@@ -15,7 +15,7 @@ export default function SellerAdd() {
           borderBottomWidth: StyleSheet.hairlineWidth,
         }}
       />
-      <SellerBottomTabs />
+      <SellerBottomTabs navigation={navigation}/>
     </SafeAreaView>
   )
 }

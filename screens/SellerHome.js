@@ -24,7 +24,7 @@ export default function SellerHome({ route, navigation }) {
                     borderBottomWidth: StyleSheet.hairlineWidth,
                 }}
             />
-            <SellerBottomTabs />
+            <SellerBottomTabs navigation={navigation}/>
         </SafeAreaView>
     )
 }
