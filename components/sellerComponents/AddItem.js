@@ -1,17 +1,84 @@
-import { View, Text, SafeAreaView, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, SafeAreaView, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import React, { useState } from 'react';
 import { TextInput } from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { useNavigation } from '@react-navigation/native';
+import firebase from '../../firebase';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
+require("firebase/firestore");
+require("firebase/storage");
 
-//text doesnt show dynamically
-
-export default function AddItem(props, { navigation }) {
+export default function AddItem(props) {
+    const navigation = useNavigation();
     const [productName, setProductName] = useState("")
 
-    console.log(props.route.params.image);
+    const uploadImage = async () => {
+        const uri = props.route.params.image;
+        const childPath = `pictures/${firebase.auth().currentUser.uid}/${Math.random().toString(36)}`;
+        console.log(childPath);
+
+        const response = await fetch(uri);
+        const blob = await response.blob();
+
+        const task = firebase
+            .storage()
+            .ref()
+            .child(childPath)
+            .put(blob);
+
+
+        const taskProgress = snapshot => {
+            console.log(`transferred: ${snapshot.bytesTransferred}`)
+        }
+
+        const taskCompleted = () => {
+            task.snapshot.ref.getDownloadURL().then((snapshot) => {
+                saveProductData(snapshot);
+                console.log(snapshot);
+            })
+        }
+
+        const taskError = snapshot => {
+            console.log(snapshot)
+        }
+        
+        task.on("state_changed", taskProgress, taskError, taskCompleted);
+    }
+
+    const saveProductData = (downloadURL) => {
+
+        firebase.firestore()
+            .collection('shops')
+            .doc(firebase.auth().currentUser.uid)
+            .collection("products")
+            .add({
+                downloadURL,
+                productName,
+                creation: firebase.firestore.FieldValue.serverTimestamp()
+            }).then((function (){
+                navigation.navigate("SellerHome")
+            }))
+    }
+
     return (
-        <SafeAreaView>
+        <SafeAreaView style={{flex: 1}}>
             <Text>List a Product</Text>
+            <TouchableOpacity onPress={() => navigation.navigate("AddPhoto")}>
+                <View>
+                    <FontAwesome5
+                        name="camera"
+                        size={25}
+                        style={{
+                            marginBottom: 3,
+                            alignSelf: "center",
+                        }} />
+                    <Text>Change Image</Text>
+                </View>
+            </TouchableOpacity>
+
+            <Image source={{uri: props.route.params.image}}/>
 
             <Text>Product Name</Text>
             <TextInput
@@ -35,20 +102,9 @@ export default function AddItem(props, { navigation }) {
                 placeholder="Description"
             />
             <Text>Picture of Product</Text>
-            <TouchableOpacity onPress={() => props.navigation.navigate("AddPhoto")}>
-                <View>
-                    <FontAwesome5
-                        name="camera"
-                        size={25}
-                        style={{
-                            marginBottom: 3,
-                            alignSelf: "center",
-                        }} />
-                    <Text>Add Image</Text>
-                </View>
-            </TouchableOpacity>
             <TouchableOpacity
                 style={styles.button}
+                onPress = {() => uploadImage()}
             >
                 <Text style={styles.text}>
                     List It!

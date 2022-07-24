@@ -31,7 +31,7 @@ export default function RootNavigation() {
     return (
         <ReduxProvider store={store}>
             <NavigationContainer>
-                <Stack.Navigator initialRouteName="AddPhoto" screenOptions={screenOptions}>
+                <Stack.Navigator initialRouteName="Landing" screenOptions={screenOptions}>
                 {/* <Stack.Navigator initialRouteName="Landing" screenOptions={screenOptions}> */}
                     <Stack.Screen name="Landing" component={Landing} />
                     <Stack.Screen name="BuyerSeller" component={BuyerSeller} />
