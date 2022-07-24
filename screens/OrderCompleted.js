@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, SafeAreaView, ScrollView } from "react-native";
+import { View, Text, SafeAreaView, ScrollView, Touchable, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 import LottieView from "lottie-react-native";
 import firebase from "../firebase";
 import ProductItems from "../components/shopDetail/ProductItems";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 //items hardcoded
 const goods = [
@@ -51,7 +52,7 @@ const goods = [
     }
   ];
 
-export default function OrderCompleted() {
+export default function OrderCompleted( {navigation} ) {
   const [lastOrder, setLastOrder] = useState({
     items: [
       {
@@ -124,6 +125,22 @@ export default function OrderCompleted() {
             autoPlay
             speed={0.5}
           /> */}
+          <TouchableOpacity
+            style={{
+              elevation: 8,
+              justifyContent: 'center',
+              alignItems: 'center',
+              padding: 15,
+              margin: 15,
+              borderRadius: 15,
+              backgroundColor: 'teal',
+              marginBottom: 10
+              }} 
+              onPress = {() => navigation.navigate("BuyerCheckout")}>
+              <Text style={{ color: "white", fontSize: 20, }}>
+                        Check out
+              </Text>
+          </TouchableOpacity>
         </ScrollView>
       </View>
     </SafeAreaView>

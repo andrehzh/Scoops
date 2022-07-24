@@ -17,6 +17,8 @@ import SellerAdd from './screens/SellerAdd';
 import SellerEdit from './screens/SellerEdit';
 import AddPhoto from './components/sellerComponents/AddPhoto';
 import AddItem from './components/sellerComponents/AddItem';
+import BuyerCheckout from './screens/BuyerCheckout'; 
+import BuyerConfirmation from './screens/BuyerConfirmation';
 
 
 const store = configureStore();
@@ -31,11 +33,7 @@ export default function RootNavigation() {
     return (
         <ReduxProvider store={store}>
             <NavigationContainer>
-<<<<<<< HEAD
-                <Stack.Navigator initialRouteName="AddItem" screenOptions={screenOptions}>
-=======
-                <Stack.Navigator initialRouteName="Landing" screenOptions={screenOptions}>
->>>>>>> main
+                <Stack.Navigator initialRouteName="BuyerHome" screenOptions={screenOptions}>
                 {/* <Stack.Navigator initialRouteName="Landing" screenOptions={screenOptions}> */}
                     <Stack.Screen name="Landing" component={Landing} />
                     <Stack.Screen name="BuyerSeller" component={BuyerSeller} />
@@ -50,6 +48,8 @@ export default function RootNavigation() {
                     <Stack.Screen name="OrderCompleted" component={OrderCompleted} />
                     <Stack.Screen name="AddPhoto" component={AddPhoto} />
                     <Stack.Screen name="AddItem" component={AddItem} />
+                    <Stack.Screen name="BuyerCheckout" component={BuyerCheckout} />
+                    <Stack.Screen name="BuyerConfirmation" component={BuyerConfirmation} />
                 </Stack.Navigator>
             </NavigationContainer>
         </ReduxProvider>
