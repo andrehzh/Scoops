@@ -16,6 +16,8 @@ import SellerAdd from './screens/SellerAdd';
 import SellerEdit from './screens/SellerEdit';
 import AddPhoto from './components/sellerComponents/AddPhoto';
 import AddItem from './components/sellerComponents/AddItem';
+import BuyerCheckout from './screens/BuyerCheckout'; 
+import BuyerConfirmation from './screens/BuyerConfirmation';
 
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
