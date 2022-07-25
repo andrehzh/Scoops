@@ -67,6 +67,8 @@ export const SignedinStackBuyer = () => (
             <Stack.Screen name="BuyerHome" component={BuyerHome} />
             <Stack.Screen name="ShopDetail" component={ShopDetail} />
             <Stack.Screen name="OrderCompleted" component={OrderCompleted} />
+            <Stack.Screen name="BuyerCheckout" component={BuyerCheckout} />
+            <Stack.Screen name="BuyerConfirmation" component={BuyerConfirmation} />
         </Stack.Navigator>
     </NavigationContainer>
     </Provider>
