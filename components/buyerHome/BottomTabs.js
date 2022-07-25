@@ -12,10 +12,11 @@ export default function BottomTabs() {
         justifyContent: "space-between"
     }}>
       <Icon icon = "home" text = "Home"/>
-      <Icon icon = "search" text = "Browse"/>
-      <Icon icon = "shopping-bag" text = "Grocery"/>
       <Icon icon = "receipt" text = "Orders"/>
-      <Icon icon = "user" text = "Account"/>
+      { /* <Icon icon = "shopping-bag" text = "Grocery"/> 
+      <Icon icon = "search" text = "Browse"/>
+       */ }
+      <Icon icon = "user" text = "Log out"/>
     </View>
   )
 }
