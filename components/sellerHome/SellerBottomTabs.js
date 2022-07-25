@@ -2,10 +2,20 @@ import { View, Text, Button } from 'react-native'
 import React from 'react'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import { TouchableOpacity } from 'react-native';
+import firebase from '../../firebase';
+import { async } from '@firebase/util';
 
 //touchableopacity/buttons not working...
 
 export default function BottomTabs({ navigation }) {
+    const handleSignout = async () => {
+        try {
+            firebase.auth().signOut()
+            console.log('Signed Out!')
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <View style={{
@@ -50,6 +60,19 @@ export default function BottomTabs({ navigation }) {
                             alignSelf: "center",
                         }} />
                     <Text>Edit</Text>
+                </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity>
+                <View>
+                    <FontAwesome5
+                        name="times"
+                        size={25}
+                        style={{
+                            marginBottom: 3,
+                            alignSelf: "center",
+                        }} />
+                    <Text>Logout</Text>
                 </View>
             </TouchableOpacity>
         </View>

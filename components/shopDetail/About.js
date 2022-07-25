@@ -16,10 +16,12 @@ export default function About(props) {
     const { name, image, reviews, rating, categories } 
         = props.route.params;
     
-    const formattedCategories = categories.map((cat) => cat.title).join(" • ");
+    // const formattedCategories = categories.map((cat) => cat.title).join(" • ");
     
-    const description = `${formattedCategories}
-    • 🎫 • ${rating} ⭐ (${reviews}+)`;
+    // const description = `${formattedCategories}
+    // • 🎫 • ${rating} ⭐ (${reviews}+)`;
+
+    const description = `Shop • 🎫 • ${rating} ⭐ (${reviews}+)`;
     
     return (
         <View>

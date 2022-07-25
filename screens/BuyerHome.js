@@ -1,4 +1,5 @@
-import { View, Text, SafeAreaView, ScrollView, Image } from 'react-native'
+
+import { View, Text, SafeAreaView, ScrollView, useState, useEffect } from 'react-native'
 import React from 'react'
 import HeaderTabs from '../components/buyerHome/HeaderTabs'
 import BottomTabs from '../components/buyerHome/BottomTabs'
@@ -9,7 +10,14 @@ import { Divider } from 'react-native-elements'
 
 export default function BuyerMain({ navigation }) {
   const [shopData, setShopData] = React.useState(shops)
-  //const [activeTab, setActiveTab] = useState("Delivery")
+
+  // useEffect(() => {
+  //   firebase.firestore().collection('shops')
+  //     .onSnapshot(snapshot => {
+  //       setShopData(snapshot.docs.map(doc => doc.data()))
+  //     })
+  // }, [])
+  
   return (
     <SafeAreaView style = {{backgroundColor: 'white', flex: 1}}>
       <Image

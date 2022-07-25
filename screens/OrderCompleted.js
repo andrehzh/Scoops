@@ -7,7 +7,7 @@ import ProductItems from "../components/shopDetail/ProductItems";
 import { goods } from "./ShopDetail";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-export default function OrderCompleted( {navigation} ) {
+export default function OrderCompleted({ navigation }) {
   const [lastOrder, setLastOrder] = useState({
     products: [
       {
@@ -24,17 +24,16 @@ export default function OrderCompleted( {navigation} ) {
     (state) => state.cartReducer.selectedProducts
   );
 
-  //issue: total num is off (will hardcode in for now.)
+  // issue: total num is off (will hardcode in for now.)
   const total = products
     .map((product) => Number(product.price.replace("$", "")))
-    .reduce((prev, curr) => prev + curr, 34.50)
-    console.log;
+    .reduce((prev, curr) => prev + curr, 0)
+    console.log(total);
 
   const totalUSD = total.toLocaleString("en", {
     style: "currency",
     currency: "SGD",
-  })
-  console.log(totalUSD);
+  });
 
   useEffect(() => {
     const db = firebase.firestore();
@@ -61,7 +60,7 @@ export default function OrderCompleted( {navigation} ) {
         }}
       >
         <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-          Your order at {shopName} has been placed for {totalUSD}
+          Your order at {shopName} has been placed
         </Text>
         <ScrollView>
           <ProductItems
