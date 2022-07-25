@@ -1,7 +1,7 @@
 import { View, Text, Image} from 'react-native'
 import React from 'react'
 
-//information hardcoded in
+//get information from shop clicked on.
 
 export default function About(props) {
 

@@ -10,9 +10,13 @@ import 'firebase/compat/storage';
 require("firebase/firestore");
 require("firebase/storage");
 
+//send to backend shops -> products
+
 export default function AddItem(props) {
     const navigation = useNavigation();
-    const [productName, setProductName] = useState("")
+    const [productName, setProductName] = useState("");
+    const [description, setDescription] = useState("");
+    const [price, setPrice] = useState("");
 
     const uploadImage = async () => {
         const uri = props.route.params.image;
@@ -43,7 +47,7 @@ export default function AddItem(props) {
         const taskError = snapshot => {
             console.log(snapshot)
         }
-        
+
         task.on("state_changed", taskProgress, taskError, taskCompleted);
     }
 
@@ -54,16 +58,18 @@ export default function AddItem(props) {
             .doc(firebase.auth().currentUser.uid)
             .collection("products")
             .add({
-                downloadURL,
-                productName,
+                title: productName,
+                description: description,
+                price: price,
+                image: downloadURL,
                 creation: firebase.firestore.FieldValue.serverTimestamp()
-            }).then((function (){
+            }).then((function () {
                 navigation.navigate("SellerHome")
             }))
     }
 
     return (
-        <SafeAreaView style={{flex: 1}}>
+        <SafeAreaView style={{ flex: 1 }}>
             <Text>List a Product</Text>
             <TouchableOpacity onPress={() => navigation.navigate("AddPhoto")}>
                 <View>
@@ -78,7 +84,8 @@ export default function AddItem(props) {
                 </View>
             </TouchableOpacity>
 
-            <Image source={{uri: props.route.params.image}}/>
+            <Text>Picture of Product</Text>
+            <Image source={{ uri: props.route.params.image }} />
 
             <Text>Product Name</Text>
             <TextInput
@@ -86,25 +93,30 @@ export default function AddItem(props) {
                 placeholder="Product Name"
                 onChangeText={(productName) => setProductName(productName)}
             />
-            <Text>Product Type</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Product Type"
-            />
-            <Text>Price</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Price"
-            />
+
             <Text>Description</Text>
             <TextInput
                 style={styles.input}
                 placeholder="Description"
+                onChangeText={(description) => setDescription(description)}
             />
-            <Text>Picture of Product</Text>
+
+            <Text>Price</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Price"
+                onChangeText={(price) => setPrice(price)}
+            />
+
+            {/* <Text>Product Type</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Product Type"
+            /> */}
+
             <TouchableOpacity
                 style={styles.button}
-                onPress = {() => uploadImage()}
+                onPress={() => uploadImage()}
             >
                 <Text style={styles.text}>
                     List It!

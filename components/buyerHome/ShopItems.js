@@ -2,6 +2,8 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
+//all of the shops must be taken and pulled here.
+
 export const shops = [
     {
         name: "Amy's Cake Shop",

@@ -1,11 +1,11 @@
 import { View, Text, Image} from 'react-native'
 import React from 'react'
 
-//information hardcoded in
+//Get information from current user
 
 export const shopBackendInfo = 
     {
-        name: 'Andre Cake Shop',
+        name: 'Andre Cake Shop teehee',
         image: 'https://hips.hearstapps.com/del.h-cdn.co/assets/16/38/1600x800/landscape-1474650684-cakes-group-193.jpg?resize=980:*',
         // reviews: "99",
         // rating: "4.5",

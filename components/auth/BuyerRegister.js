@@ -19,14 +19,14 @@ export class BuyerRegister extends Component {
         const { name, email, password } = this.state;
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((result) => {
-              firebase.firestore().collection("buyers")
-                .doc(firebase.auth().currentUser.uid)
+              firebase.firestore().collection("users")
+                .doc(firebase.auth().currentUser.email)
                 .set({
                   name,
-                  email
+                  email,
+                  type: "buyer",
                 })
             console.log(result);
-            this.props.navigation.navigate("BuyerHome");
         })
             .catch((error) => {
                 console.log(error)
