@@ -4,5 +4,5 @@ import AuthNavigation from "./AuthNavigation";
 import { SignedinStackBuyer } from "./navigation";
 
 export default function App() {
-  return <SignedinStackBuyer/>;
+  return <AuthNavigation/>;
 }

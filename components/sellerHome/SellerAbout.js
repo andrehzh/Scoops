@@ -23,11 +23,11 @@ export default function SellerAbout() {
     })
 
     //big issue seller about not updated.
-    useEffect(() => {
-        firebase.firestore().collection('shops').onSnapshot(snapshot => {
-            console.log(snapshot.docs.map(doc => doc.data()))
-        })
-    }, [])
+    // useEffect(() => {
+    //     firebase.firestore().collection('shops').getDoc(doc => {
+    //         console.log(doc.data())
+    //     })
+    // }, [])
 
     const { name, image, reviews, rating, categories } = shopInfo;
     

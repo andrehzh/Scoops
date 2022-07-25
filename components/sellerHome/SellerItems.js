@@ -49,7 +49,7 @@ const GoodInfo = (props) => (
     <View style = {{ width: 240, justifyContent: "space-evenly" }}>
         <Text style = {styles.titleStyle}>{props.good.title}</Text>
         <Text>{props.good.description}</Text>
-        <Text>{props.good.price}</Text>
+        <Text>${props.good.price}</Text>
     </View>
 )
 

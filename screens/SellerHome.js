@@ -18,8 +18,15 @@ export default function SellerHome({ navigation }) {
         })
     }, [])
 
+    //big issue seller about not updated.
+    // useEffect(() => {
+    //     firebase.firestore().collection('shops').getDoc(doc => {
+    //         console.log(doc.data())
+    //     })
+    // }, [])
+
     return (
-        <SafeAreaView style={{ backgroundColor: 'white', flex: 1, justifyContent: 'space-between' }}>
+        <View style={{ backgroundColor: 'white', flex: 1, justifyContent: 'space-between' }}>
             <View>
                 <SellerAbout />
                 <Divider width={1.8} style={{ marginVertical: 20 }} />
@@ -34,6 +41,6 @@ export default function SellerHome({ navigation }) {
                 }}
             />
             <SellerBottomTabs navigation={navigation}/>
-        </SafeAreaView>
+        </View>
     )
 }
