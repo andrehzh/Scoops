@@ -12,15 +12,15 @@ export default function BuyerMain({ navigation }) {
   //const [activeTab, setActiveTab] = useState("Delivery")
   return (
     <SafeAreaView style = {{backgroundColor: 'white', flex: 1}}>
-      <Image
-          style = {{width: 350, height: 50, alignSelf: 'center'}}
-         resizeMode = "contain"
-          source = {require('../assets/logo.png')}/>
       <View style = {{backgroundColor: 'white', padding: 15}}>
          {/*<HeaderTabs/>*/}
         {/*<SearchBar/>*/}
       </View>
       <ScrollView showsVerticalScrollIndicator = {false}>
+      <Image
+          style = {{width: 350, height: 50, alignSelf: 'center'}}
+         resizeMode = "contain"
+          source = {require('../assets/logo.png')}/>
         <Categories/>
         <ShopItems shopData = {shopData} navigation = {navigation}/>
       </ScrollView>
