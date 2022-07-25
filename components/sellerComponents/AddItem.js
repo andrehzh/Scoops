@@ -55,7 +55,7 @@ export default function AddItem(props) {
 
         firebase.firestore()
             .collection('shops')
-            .doc(firebase.auth().currentUser.uid)
+            .doc(firebase.auth().currentUser.email)
             .collection("products")
             .add({
                 title: productName,

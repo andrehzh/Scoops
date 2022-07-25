@@ -25,9 +25,11 @@ const AuthNavigation = () => {
     
     useEffect(() =>
         firebase.auth().onAuthStateChanged(user => userHandler(user)),
-        findUserType(),
         []);
 
+    useEffect(() => {
+        findUserType()
+    });
     
     return <>{!currentUser ? <SignedOutStack /> : (userType === "buyer" ? <SignedinStackBuyer/> : <SignedInStackSeller/>) }</>
 }
