@@ -6,8 +6,8 @@ import firebase from '../../firebase'
 
 export const shopBackendInfo = 
     {
-        name: 'Andre Cake Shop teehee',
-        image: 'https://hips.hearstapps.com/del.h-cdn.co/assets/16/38/1600x800/landscape-1474650684-cakes-group-193.jpg?resize=980:*',
+        name: 'Smelly Cakes',
+        image: 'https://media-cdn.tripadvisor.com/media/photo-s/11/24/34/c6/mandarin-cake-shop-bakery.jpg',
         reviews: "99",
         rating: "4.5",
         categories: [{ title: "Cakes" }],
@@ -15,11 +15,11 @@ export const shopBackendInfo =
 
 export default function SellerAbout() {
     const [shopInfo, setShopInfo] = useState({
-        name: 'Andre Cake Shop teehee',
-        image: 'https://hips.hearstapps.com/del.h-cdn.co/assets/16/38/1600x800/landscape-1474650684-cakes-group-193.jpg?resize=980:*',
-        reviews: "99",
-        rating: "4.5",
-        categories: [{ title: "Cakes" }],
+        name: 'Please Edit Shop Name 🚧',
+        image: 'https://www.forbes.com/advisor/wp-content/uploads/2021/03/960x0_54.jpg',
+        reviews: "0.0",
+        rating: "0.0",
+        categories: [{ title: "Please Edit" }],
     })
 
     //big issue seller about not updated.
@@ -29,7 +29,7 @@ export default function SellerAbout() {
     //     })
     // }, [])
 
-    const { name, image, reviews, rating, categories } = shopInfo;
+    const { name, image, reviews, rating, categories } = shopBackendInfo;
     
     // const formattedCategories = categories.map((cat) => cat.title).join(" • ");
     
@@ -49,7 +49,7 @@ export default function SellerAbout() {
                     marginTop: 10,
                     marginHorizontal: 9,
                 }}
-            > This is your Shop !!!! 
+            > This is your Shop 📍 
             </Text>
             <ShopName name = {name}/>
             <ShopDescription description = {description}/>
