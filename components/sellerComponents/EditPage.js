@@ -2,6 +2,9 @@ import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity } fro
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import React from 'react'
 
+
+//send to backend -> shops
+
 export default function EditPage() {
     return (
         <SafeAreaView>

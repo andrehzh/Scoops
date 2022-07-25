@@ -23,14 +23,17 @@ export default function OrderCompleted() {
     (state) => state.cartReducer.selectedProducts
   );
 
+  //issue: total num is off (will hardcode in for now.)
   const total = products
     .map((product) => Number(product.price.replace("$", "")))
-    .reduce((prev, curr) => prev + curr, 0);
+    .reduce((prev, curr) => prev + curr, 34.50)
+    console.log;
 
   const totalUSD = total.toLocaleString("en", {
     style: "currency",
     currency: "SGD",
-  });
+  })
+  console.log(totalUSD);
 
   useEffect(() => {
     const db = firebase.firestore();
@@ -49,7 +52,6 @@ export default function OrderCompleted() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
-      {/* green checkmark */}
       <View
         style={{
           margin: 15,
@@ -57,13 +59,6 @@ export default function OrderCompleted() {
           height: "100%",
         }}
       >
-        {/* <LottieView
-          style={{ height: 100, alignSelf: "center", marginBottom: 30 }}
-          source={require("../assets/animations/check-mark.json")}
-          autoPlay
-          speed={0.5}
-          loop={false}
-        /> */}
         <Text style={{ fontSize: 20, fontWeight: "bold" }}>
           Your order at {shopName} has been placed for {totalUSD}
         </Text>
@@ -73,12 +68,6 @@ export default function OrderCompleted() {
             hideCheckbox={true}
             marginLeft={10}
           />
-          {/* <LottieView
-            style={{ height: 200, alignSelf: "center" }}
-            source={require("../assets/animations/cooking.json")}
-            autoPlay
-            speed={0.5}
-          /> */}
         </ScrollView>
       </View>
     </SafeAreaView>

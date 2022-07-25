@@ -1,11 +1,25 @@
-import { View, Text, SafeAreaView, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, Platform } from 'react-native'
 import React from 'react'
 import About from '../components/shopDetail/About'
 import { Divider } from 'react-native-elements'
 import ProductItems from '../components/shopDetail/ProductItems'
 import ViewCart from '../components/shopDetail/ViewCart'
+import firebase from '../firebase';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
+import { Provider } from 'react-redux'
+require("firebase/firestore");
+require("firebase/storage");
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
+import promise from 'redux-promise'
+import logger from 'redux-logger'
+import rootReducer from '../redux/reducers';
 
-//items hardcoded
+const Store = createStore(rootReducer, applyMiddleware(thunk));
+
+// items hardcoded the shop which is clicked on items
 export const goods = [
   {
       title: "chocolatecake",
@@ -47,12 +61,13 @@ export const goods = [
       description: "again ugly ass cake",
       price: "$0.10",
       image:
-          "https://scontent.fsin10-1.fna.fbcdn.net/v/t1.6435-9/125865322_3944672392229403_874929528125186590_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=waFlL4QqpHYAX-czuot&_nc_ht=scontent.fsin10-1.fna&oh=00_AT9dIvy032lhH0RnLa9ghYKTzhHJr4yE1kpFs5f0l7n77A&oe=62C9B9CB",
+      "https://firebasestorage.googleapis.com/v0/b/scoops-6b1da.appspot.com/o/pictures%2F7re5iCkWw3hjIJF2kG6Amrv2XVp2%2F0.rexix17z2n?alt=media&token=a8f880df-2212-4332-a207-c3e2f40fde83",
   }
 ];
 
 export default function ShopDetail({ route, navigation }) { 
   return (
+    <Provider store={Store}>
     <SafeAreaView style = {{backgroundColor: 'white', flex: 1}}>
       <About route={route} />
       <Divider width={1.8} style={{ marginVertical: 20 }} />
@@ -61,6 +76,7 @@ export default function ShopDetail({ route, navigation }) {
           <ViewCart navigation={navigation} />
         </ScrollView>
     </SafeAreaView>
+    </Provider>
   )
 }
 

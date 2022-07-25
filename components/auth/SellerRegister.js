@@ -19,15 +19,14 @@ export class SellerRegister extends Component {
         const { name, email, password } = this.state;
         firebase.auth().createUserWithEmailAndPassword(email, password)
           .then((result) => {
-            firebase.firestore().collection("sellers")
-            .doc(firebase.auth().currentUser.uid)
+            firebase.firestore().collection("users")
+            .doc(firebase.auth().currentUser.email)
             .set({
               name,
-              email
+              email,
+              type: "seller",
             })
             console.log(result);
-            //for now no need to authenticate the seller if it is or not cause i dont have time for that shit...
-            this.props.navigation.navigate("SellerHome");
           })
             .catch((error) => {
                 console.log(error)

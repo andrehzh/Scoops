@@ -10,6 +10,8 @@ import 'firebase/compat/storage';
 require("firebase/firestore");
 require("firebase/storage");
 
+//send to backend shops -> products
+
 export default function AddItem(props) {
     const navigation = useNavigation();
     const [productName, setProductName] = useState("");
