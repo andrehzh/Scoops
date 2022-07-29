@@ -1,5 +1,5 @@
 
-import { View, Text, SafeAreaView, ScrollView, useState, useEffect } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, useState, useEffect, Image } from 'react-native'
 import React from 'react'
 import HeaderTabs from '../components/buyerHome/HeaderTabs'
 import BottomTabs from '../components/buyerHome/BottomTabs'

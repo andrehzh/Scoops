@@ -7,7 +7,7 @@ export default function SellerEdit({ navigation }) {
   return (
     <SafeAreaView style={{ backgroundColor: 'white', flex: 1, justifyContent: 'space-between' }}>
       <ScrollView>
-        <EditPage />
+        <EditPage navigation={navigation}/>
       </ScrollView>
       <View
         style={{

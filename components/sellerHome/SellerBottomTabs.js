@@ -3,7 +3,7 @@ import React from 'react'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import { TouchableOpacity } from 'react-native';
 import firebase from '../../firebase';
-import { async } from '@firebase/util';
+import * as Updates from 'expo-updates';
 
 //touchableopacity/buttons not working...
 

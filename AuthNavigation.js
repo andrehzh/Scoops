@@ -18,7 +18,7 @@ const AuthNavigation = () => {
         const docRef = doc(db, "users", firebase.auth().currentUser.email)
         const docSnap = await getDoc(docRef)
 
-        if(docSnap.data().type === "buyer") {
+        if(docSnap.exists) {
             setUserType(docSnap.data().type) 
         };
     }
